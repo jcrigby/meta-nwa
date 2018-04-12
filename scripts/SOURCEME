@@ -1,5 +1,7 @@
 #/bin/bash
 
 MACHINE=imx6ul-var-dart DISTRO=fslc-framebuffer . setup-environment build_fb
+grep -q meta-nws conf/bblayers.conf ||
+    cp ../sources/meta-nwa/scripts/bblayers.conf conf
 
 echo "now type 'bitbake fsl-image-gui' to build"
