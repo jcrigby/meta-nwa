@@ -1,0 +1,2 @@
+export QT_QPA_PLATFORM=linuxfb
+/usr/share/qt5/examples/touch/fingerpaint/fingerpaint &
