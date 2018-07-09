@@ -1,7 +1,7 @@
 #/bin/bash
 
-MACHINE=imx6ul-var-dart DISTRO=fslc-framebuffer . setup-environment build_fb
+MACHINE=imx6ul-var-dart DISTRO=fslc-x11 . setup-environment build_x11
 grep -q meta-nws conf/bblayers.conf ||
     cp ../sources/meta-nwa/scripts/bblayers.conf conf
 
-echo "now type 'bitbake fsl-image-qt5' to build"
+echo "now type 'bitbake fsl-image-gui' to build"
