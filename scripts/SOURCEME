@@ -2,6 +2,11 @@
 
 MACHINE=imx6ul-var-dart DISTRO=fslc-x11 . setup-environment build_x11
 grep -q meta-nws conf/bblayers.conf ||
-    cp ../sources/meta-nwa/scripts/bblayers.conf conf
+    cp ../sources/meta-nwa/scripts/bblayers.conf conf &&
+    echo "Replaced bblayers with one including meta-nwa"
 
-echo "now type 'bitbake fsl-image-gui' to build"
+grep -q python3-kivy conf/local.conf ||
+    echo 'CORE_IMAGE_EXTRA_INSTALL += "python3-kivy python3-kivy-examples"' >> conf/local.conf &&
+    echo "Added kivy to CORE_IMAGE_EXTRA_INSTALL in conf/local.conf"
+
+echo "Now type 'bitbake fsl-image-gui' to build"
