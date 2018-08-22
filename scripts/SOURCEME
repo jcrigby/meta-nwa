@@ -6,7 +6,20 @@ grep -q meta-nws conf/bblayers.conf ||
     echo "Replaced bblayers with one including meta-nwa"
 
 grep -q python3-kivy conf/local.conf ||
-    echo 'CORE_IMAGE_EXTRA_INSTALL += "python3-kivy python3-kivy-examples"' >> conf/local.conf &&
-    echo "Added kivy to CORE_IMAGE_EXTRA_INSTALL in conf/local.conf"
+cat <<'__END__' >> conf/local.conf && echo "Added kivy to CORE_IMAGE_EXTRA_INSTALL in conf/local.conf"
+CORE_IMAGE_EXTRA_INSTALL += "\
+python3-kivy \
+python3-kivy-examples \
+python3-pyserial \
+python3-flask \
+python3-flask-socketio \
+python3-socketio \
+python3-werkzeug \
+python3-jinja2 \
+python3-markupsafe \
+python3-click \
+python3-itsdangerous \
+"
+__END__
 
 echo "Now type 'bitbake fsl-image-gui' to build"
