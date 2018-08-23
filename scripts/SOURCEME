@@ -19,6 +19,9 @@ python3-jinja2 \
 python3-markupsafe \
 python3-click \
 python3-itsdangerous \
+python3-engineio \
+python3-kivy-garden-joystick \
+python3-pillow \
 "
 __END__
 
